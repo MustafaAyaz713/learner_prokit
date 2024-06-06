@@ -1,13 +1,13 @@
 const learner_sample_long_text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
 const learner_Get_Started = "Get Started";
 const learner_hint_email = "Email";
-const learner_hint_password = "Password";
+const learner_hint_password = "Şifre";
 const learner_lbl_enter = "Enter";
 const learner_sign_up_info = "By Pressing 'Join' you agree to our";
 
-const learner_hint_full_name = "Full Name";
+const learner_hint_full_name = "Kullanıcı Adı ";
 const learner_lbl_login_underlined = "<u>Login</u>";
-const learner_lbl_join = "Join";
+const learner_lbl_join = "Katıl";
 const learner_lbl_don_t_joined_yet = "Don\'t Joined Yet !";
 const learner_txt_terms_condition = "Terms & Condition";
 
