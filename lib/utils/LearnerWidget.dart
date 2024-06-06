@@ -4,12 +4,12 @@ import 'package:learner_prokit/utils/AppWidget.dart';
 import 'package:learner_prokit/utils/LearnerColors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-
-// ignore: non_constant_identifier_names
-Container LearnerEditTextStyle(var hintText, {isPassword = false}) {
+// Güncellenmiş LearnerEditTextStyle fonksiyonu
+Container LearnerEditTextStyle(var hintText, {isPassword = false, required TextEditingController? controller}) {
   return Container(
     decoration: boxDecoration(radius: 40, showShadow: true, bgColor: learner_white),
     child: TextFormField(
+      controller: controller, // Controller parametresi burada atanıyor
       style: primaryTextStyle(),
       obscureText: isPassword,
       decoration: InputDecoration(
@@ -31,29 +31,24 @@ Container LearnerEditTextStyle(var hintText, {isPassword = false}) {
   );
 }
 
-// ignore: must_be_immutable
-class LearnerButton extends StatefulWidget {
-  var textContent;
-  VoidCallback onPressed;
+// Güncellenmiş LearnerButton widget'ı
+class LearnerButton extends StatelessWidget {
+  final String textContent;
+  final VoidCallback onPressed;
 
-  LearnerButton({required this.textContent, required this.onPressed});
+  const LearnerButton({required this.textContent, required this.onPressed});
 
-  @override
-  State<StatefulWidget> createState() {
-    return T9ButtonState();
-  }
-}
-
-class T9ButtonState extends State<LearnerButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)), backgroundColor: learner_colorPrimary,
-          padding: const EdgeInsets.all(0.0),
-          elevation: 4,
-          textStyle: TextStyle(color: learner_white)),
-      onPressed: widget.onPressed,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+        backgroundColor: learner_colorPrimary,
+        padding: const EdgeInsets.all(0.0),
+        elevation: 4,
+        textStyle: TextStyle(color: learner_white),
+      ),
+      onPressed: onPressed,
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(80.0)),
@@ -62,7 +57,7 @@ class T9ButtonState extends State<LearnerButton> {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              widget.textContent,
+              textContent,
               style: boldTextStyle(color: white),
               textAlign: TextAlign.center,
             ),
