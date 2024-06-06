@@ -15,12 +15,17 @@ class LearnerInstructorsDetails extends StatefulWidget {
 }
 
 class _LearnerInstructorsDetailsState extends State<LearnerInstructorsDetails> {
-  late List<LearnerFeaturedModel> mList1;
+  late List<LearnerFeaturedModel> mList1 = [];
 
   @override
   void initState() {
     super.initState();
-    mList1 = learnerGetFavourites();
+    
+  }
+  void loadData() async {
+   
+    mList1 = await LearnerGetFeatured();
+    setState(() {  });
   }
 
   Widget build(BuildContext context) {
