@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:learner_prokit/Screens/LearnerHome.dart';
 import 'package:learner_prokit/Screens/LearnerSignUp.dart';
 import 'package:learner_prokit/utils/LearnerColors.dart';
 import 'package:learner_prokit/utils/LearnerImages.dart';
 import 'package:learner_prokit/utils/LearnerStrings.dart';
 import 'package:learner_prokit/utils/LearnerWidget.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../main.dart';
 
@@ -17,6 +19,37 @@ class LearnerLogin extends StatefulWidget {
 }
 
 class _LearnerLoginState extends State<LearnerLogin> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final SupabaseClient supabase = Supabase.instance.client;
+
+  Future<void> _signIn() async {
+    try {
+      final AuthResponse res = await supabase.auth.signInWithPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      if (res.user != null) {
+  // Başarıyla oturum açıldı
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text('Login successful!')),
+  );
+
+  // Kullanıcıyı home.dart sayfasına yönlendir
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => LearnerHome()), // home.dart sayfanızın adı
+  );
+}
+    } catch (e) {
+      // Hata mesajı göster
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -51,9 +84,17 @@ class _LearnerLoginState extends State<LearnerLogin> {
                     ),
                   ),
                   32.height,
-                  LearnerEditTextStyle(learner_hint_email, isPassword: false),
+                  LearnerEditTextStyle(
+                    learner_hint_email,
+                    isPassword: false,
+                    controller: _emailController,
+                  ),
                   16.height,
-                  LearnerEditTextStyle(learner_hint_password, isPassword: true),
+                  LearnerEditTextStyle(
+                    learner_hint_password,
+                    isPassword: true,
+                    controller: _passwordController,
+                  ),
                   48.height,
                   Align(
                     alignment: Alignment.center,
@@ -61,7 +102,7 @@ class _LearnerLoginState extends State<LearnerLogin> {
                       width: 120,
                       alignment: Alignment.center,
                       child: LearnerButton(
-                        onPressed: () {},
+                        onPressed: _signIn,
                         textContent: learner_lbl_enter,
                       ),
                     ),
