@@ -7,6 +7,11 @@ class LearnerWalk {
 class LearnerCategoryModel {
   var img = "";
   var name = "";
+
+  LearnerCategoryModel(
+    this.img,
+    this.name,
+    );
 }
 
 class LearnerFeaturedModel {
@@ -15,6 +20,14 @@ class LearnerFeaturedModel {
   var price = "";
   var strikePrice = "";
   var type;
+
+  LearnerFeaturedModel(
+    this.img,
+    this.name,
+    this.price,
+    this.strikePrice,
+    this.type,
+  );
 }
 
 class LearnerPeopleModel {
@@ -25,6 +38,16 @@ class LearnerPeopleModel {
   var subject = "";
   var email = "";
   var frd = "";
+
+  LearnerPeopleModel(
+    this.img,
+    this.name,
+    this.points,
+    this.isOnline,
+    this.subject,
+    this.email,
+    this.frd,
+  );
 }
 
 class LearnerBadgeModel {
@@ -34,17 +57,34 @@ class LearnerBadgeModel {
   var name = "";
   var comment = "";
   var isLocked = false;
+LearnerBadgeModel(
+  this.img,
+  this.name,
+  this.comment,
+  this.isLocked,
+);
+  
 }
 
 class LearnerContentModel {
   var name = "";
   var subtitle = "";
   var type = "";
+
+  LearnerContentModel(
+    this.name,
+    this.subtitle,
+    this.type,
+  );
 }
 
 class LearnerCoursesModel {
   var name = "";
   var img = "";
+  LearnerCoursesModel(
+    this.name,
+    this.img,
+  );
 }
 
 class LearnerChatModel {
@@ -52,6 +92,12 @@ class LearnerChatModel {
   var msg = "";
   var img = "";
   var isOnline = false;
+  LearnerChatModel(
+    this.name,
+    this.msg,
+    this.img,
+    this.isOnline,
+  );
 }
 
 class LearnerLectureModel {
@@ -59,6 +105,12 @@ class LearnerLectureModel {
   var title = "";
   var subtitle = "";
   var type = "";
+  LearnerLectureModel(
+    this.no,
+    this.title,
+    this.subtitle,
+    this.type,
+  );
 }
 
 class ChatModel {
