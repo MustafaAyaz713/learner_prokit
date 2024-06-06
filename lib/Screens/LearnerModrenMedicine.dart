@@ -25,12 +25,18 @@ class _LearnerModrenMedicineState extends State<LearnerModrenMedicine> {
   late List<LearnerPeopleModel> mList1;
   late List<LearnerLectureModel> mList2;
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetInstructor();
-    mList2 = learnerGetLectureData();
-  }
+@override
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList1 = await learnerGetInstructor();
+  mList2 = await learnerGetLectureData();
+  setState(() {});
+ }
+ 
 
   @override
   Widget build(BuildContext context) {
