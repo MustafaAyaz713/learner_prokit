@@ -14,13 +14,19 @@ class LearnerFriendDetail extends StatefulWidget {
 }
 
 class _LearnerFriendDetailState extends State<LearnerFriendDetail> {
-  late List<LearnerBadgeModel> mList2;
+  late List<LearnerBadgeModel> mList2 = [];
 
-  @override
-  void initState() {
-    super.initState();
-    mList2 = learnerGetBadges();
-  }
+@override
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList2 = await learnerGetBadges();
+  setState(() {});
+ }
+  
 
   @override
   Widget build(BuildContext context) {
