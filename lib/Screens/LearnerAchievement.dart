@@ -17,14 +17,18 @@ class _LearnerAchievementsState extends State<LearnerAchievements> {
   late List<LearnerPeopleModel> mList1;
   late List<LearnerBadgeModel> mList2;
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetPending();
-    mList2 = learnerGetBadges();
+ @override
+ void initState() {
+  super.initState();
+  loadData();
+ }
 
-    setState(() {});
-  }
+ void loadData() async {
+  mList1 = await learnerGetPending();
+  mList2 = await learnerGetBadges();
+  setState(() {});
+ }
+  
 
   @override
   Widget build(BuildContext context) {
