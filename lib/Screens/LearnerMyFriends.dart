@@ -17,15 +17,21 @@ class LearnerMyFriends extends StatefulWidget {
 }
 
 class _LearnerMyFriendsState extends State<LearnerMyFriends> {
-  late List<LearnerPeopleModel> mList1;
-  late List<LearnerPeopleModel> mList2;
+  late List<LearnerPeopleModel> mList1 = [];
+  late List<LearnerPeopleModel> mList2 = [];
+@override
+ void initState() {
+  super.initState();
+  loadData();
+ }
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetPending();
-    mList2 = learnerGetPending();
-  }
+ void loadData() async {
+  mList1 = await learnerGetPending();
+  mList2 = await learnerGetPending();
+  setState(() {});
+ }
+
+  
 
   @override
   Widget build(BuildContext context) {
