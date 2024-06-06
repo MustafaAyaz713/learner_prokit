@@ -17,13 +17,20 @@ class LearnerChart extends StatefulWidget {
 }
 
 class _LearnerChartState extends State<LearnerChart> {
-  late List<LearnerCoursesModel> mList1;
+  late List<LearnerCoursesModel> mList1 = [];
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetCourses();
-  }
+@override
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList1 = await learnerGetCourses();
+ 
+  setState(() {});
+ }
+  
 
   @override
   Widget build(BuildContext context) {
