@@ -17,13 +17,21 @@ class LearnerDescription extends StatefulWidget {
 }
 
 class _LearnerDescriptionState extends State<LearnerDescription> {
-  late List<LearnerContentModel> mList;
+  late List<LearnerContentModel> mList = [];
 
-  @override
-  void initState() {
-    super.initState();
-    mList = learnerGetContents();
-  }
+ @override
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList = await learnerGetContents();
+  
+  setState(() {});
+ }
+  
+  
 
   @override
   Widget build(BuildContext context) {
