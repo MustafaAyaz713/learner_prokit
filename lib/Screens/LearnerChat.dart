@@ -18,12 +18,18 @@ class _LearnerChatState extends State<LearnerChat> {
   late List<LearnerChatModel> mList1;
   late List<LearnerPeopleModel> mList2;
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetChatData();
-    mList2 = learnerGetInstructor();
-  }
+@override
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList1 = await learnerGetChatData();
+  mList2 = await learnerGetInstructor();
+  setState(() {});
+ }
+ 
 
   @override
   Widget build(BuildContext context) {
