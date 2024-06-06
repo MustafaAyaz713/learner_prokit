@@ -14,12 +14,16 @@ class LearnerFavourites extends StatefulWidget {
 }
 
 class _LearnerFavouritesState extends State<LearnerFavourites> {
-  late List<LearnerFeaturedModel> mListings1;
+  late List<LearnerFeaturedModel> mListings1 = [];
 
   @override
   void initState() {
     super.initState();
-    mListings1 = learnerGetFavourites();
+    
+  }
+  void loadData() async {
+    mListings1 = await LearnerGetFeatured();
+    setState(() { });
   }
 
   @override
