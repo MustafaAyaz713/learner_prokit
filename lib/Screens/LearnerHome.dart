@@ -8,22 +8,26 @@ import 'package:learner_prokit/utils/LearnerDataGenerator.dart';
 import 'package:learner_prokit/utils/LearnerStrings.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class LearnerHome extends StatefulWidget {
-  @override
-  _LearnerHomeState createState() => _LearnerHomeState();
+  class LearnerHome extends StatefulWidget {
+     @override
+_LearnerHomeState createState() => _LearnerHomeState();
 }
 
 class _LearnerHomeState extends State<LearnerHome> {
-  late List<LearnerFeaturedModel> mList1;
-  late List<LearnerCategoryModel> mList2;
+late List<LearnerFeaturedModel> mList1 = [];
+late List<LearnerCategoryModel> mList2 = [];
 
-  @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetFavourites();
-    mList2 = learnerGetCategories();
-  }
+ @override
+ void initState() {
+  super.initState();
+  loadData();
+ }
 
+ void loadData() async {
+  mList1 = await LearnerGetFeatured();
+  mList2 = await learnerGetCategories();
+  setState(() {});
+ }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +58,6 @@ class _LearnerHomeState extends State<LearnerHome> {
                 },
               ),
             ),
-            // SizedBox(height: 20),
             Container(
               margin: EdgeInsets.only(left: 16),
               child: text(learner_lbl_categories, fontFamily: fontBold, fontSize: textSizeNormal),
@@ -80,13 +83,10 @@ class _LearnerHomeState extends State<LearnerHome> {
   }
 }
 
-// ignore: must_be_immutable
 class LearnerFeatured extends StatelessWidget {
-  late LearnerFeaturedModel model;
+  final LearnerFeaturedModel model;
 
-  LearnerFeatured(LearnerFeaturedModel model, int pos) {
-    this.model = model;
-  }
+  LearnerFeatured(this.model, int pos);
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,8 @@ class LearnerFeatured extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: CachedNetworkImage(
-              placeholder: placeholderWidgetFn() as Widget Function(BuildContext, String)?,
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
               imageUrl: model.img,
               fit: BoxFit.cover,
               height: w * 0.4,
@@ -127,13 +128,10 @@ class LearnerFeatured extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class LearnerCategory extends StatelessWidget {
-  late LearnerCategoryModel model;
+  final LearnerCategoryModel model;
 
-  LearnerCategory(LearnerCategoryModel model, int pos) {
-    this.model = model;
-  }
+  LearnerCategory(this.model, int pos);
 
   @override
   Widget build(BuildContext context) {
