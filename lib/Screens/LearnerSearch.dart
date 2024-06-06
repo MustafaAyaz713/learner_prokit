@@ -15,15 +15,20 @@ class LearnerSearch extends StatefulWidget {
 }
 
 class _LearnerSearchState extends State<LearnerSearch> {
-  late List<LearnerPeopleModel> mList1;
-  late List<LearnerPeopleModel> mList2;
+  late List<LearnerPeopleModel> mList1 = [];
+  late List<LearnerPeopleModel> mList2 = [];
 
   @override
-  void initState() {
-    super.initState();
-    mList1 = learnerGetInstructor();
-    mList2 = learnerGetRecommended();
-  }
+ void initState() {
+  super.initState();
+  loadData();
+ }
+
+ void loadData() async {
+  mList1 = await learnerGetInstructor();
+  mList2 = await learnerGetRecommended();
+  setState(() {});
+ }
 
   @override
   Widget build(BuildContext context) {
