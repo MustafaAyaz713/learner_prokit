@@ -1,21 +1,49 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:learner_prokit/main.dart';
 import 'package:learner_prokit/utils/LearnerColors.dart';
 import 'package:learner_prokit/utils/LearnerImages.dart';
 import 'package:learner_prokit/utils/LearnerStrings.dart';
 import 'package:learner_prokit/utils/LearnerWidget.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../../main.dart';
 
 class LearnerSignUp extends StatefulWidget {
+  LearnerSignUp();
+
   @override
   _LearnerSignUpState createState() => _LearnerSignUpState();
 }
 
 class _LearnerSignUpState extends State<LearnerSignUp> {
-  @override
-  void initState() {
-    super.initState();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final SupabaseClient supabase = Supabase.instance.client;
+
+  Future<void> _signUp() async {
+    try {
+      final AuthResponse res = await supabase.auth.signUp(
+        email: _emailController.text,
+        password: _passwordController.text,
+        data: {'full_name': _fullNameController.text},
+      );
+
+      if (res.user != null) {
+        // Başarıyla kayıt olundu
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Sign up successful!')),
+        );
+        finish(context);
+        // Burada kullanıcıyı başka bir sayfaya yönlendirebilirsiniz
+      }
+    } catch (e) {
+      // Hata mesajı göster
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Sign up failed: $e')),
+      );
+    }
   }
 
   @override
@@ -23,7 +51,6 @@ class _LearnerSignUpState extends State<LearnerSignUp> {
     var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: learner_layout_background,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -50,19 +77,29 @@ class _LearnerSignUpState extends State<LearnerSignUp> {
                           child: CircleAvatar(backgroundImage: CachedNetworkImageProvider(learner_ic_Profile), radius: width / 8.5),
                         ),
                         SizedBox(height: 30),
-                        LearnerEditTextStyle(learner_hint_full_name, isPassword: false),
+                        LearnerEditTextStyle(
+                          learner_hint_full_name,
+                          isPassword: false,
+                          controller: _fullNameController,
+                        ),
                         SizedBox(height: 16),
-                        LearnerEditTextStyle(learner_hint_email, isPassword: false),
+                        LearnerEditTextStyle(
+                          learner_hint_email,
+                          isPassword: false,
+                          controller: _emailController,
+                        ),
                         SizedBox(height: 16),
-                        LearnerEditTextStyle(learner_hint_password, isPassword: true),
+                        LearnerEditTextStyle(
+                          learner_hint_password,
+                          isPassword: true,
+                          controller: _passwordController,
+                        ),
                         SizedBox(height: 50),
                         Container(
                           width: 120,
                           alignment: Alignment.center,
                           child: LearnerButton(
-                            onPressed: () {
-                              finish(context);
-                            },
+                            onPressed: _signUp,
                             textContent: learner_lbl_join,
                           ),
                         ),
