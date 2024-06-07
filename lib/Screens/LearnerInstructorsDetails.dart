@@ -56,7 +56,7 @@ class _LearnerInstructorsDetailsState extends State<LearnerInstructorsDetails> {
             ).cornerRadiusWithClipRRect(7).paddingOnly(left: 80, top: 25).center()
           ],
         ),
-        Text("Marc Elliot", style: boldTextStyle(color: learner_textColorPrimary, size: 18)).center().paddingOnly(top: 8),
+        Text("Kullanıcı Profili", style: boldTextStyle(color: learner_textColorPrimary, size: 18)).center().paddingOnly(top: 8),
         Text(learner_lbl_Student, style: primaryTextStyle(color: textSecondaryColor)).center().paddingOnly(top: 4),
         24.height,
         Container(
@@ -151,7 +151,7 @@ class _LearnerInstructorsDetailsState extends State<LearnerInstructorsDetails> {
                           children: <Widget>[
                             Text("20", style: boldTextStyle(color: learner_textColorPrimary)),
                             4.height,
-                            Text("Students", style: boldTextStyle(color: learner_textColorPrimary)),
+                            Text("Öğrenciler", style: boldTextStyle(color: learner_textColorPrimary)),
                           ],
                         ),
                         8.width,
@@ -160,7 +160,7 @@ class _LearnerInstructorsDetailsState extends State<LearnerInstructorsDetails> {
                           children: <Widget>[
                             Text("51", style: boldTextStyle(color: learner_textColorPrimary)),
                             4.height,
-                            Text("Lectures", style: boldTextStyle(color: learner_textColorPrimary)),
+                            Text("Dersler", style: boldTextStyle(color: learner_textColorPrimary)),
                           ],
                         ).expand(),
                         Container(
