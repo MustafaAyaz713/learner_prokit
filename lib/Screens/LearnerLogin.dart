@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:learner_prokit/Screens/LearnerHome.dart';
+import 'package:learner_prokit/Screens/LearnerDashboard.dart';
+//import 'package:learner_prokit/Screens/LearnerHome.dart';
 import 'package:learner_prokit/Screens/LearnerSignUp.dart';
 import 'package:learner_prokit/utils/LearnerColors.dart';
 import 'package:learner_prokit/utils/LearnerImages.dart';
@@ -8,11 +9,14 @@ import 'package:learner_prokit/utils/LearnerStrings.dart';
 import 'package:learner_prokit/utils/LearnerWidget.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:learner_prokit/utils/LearnerStrings.dart';
+
 
 import '../../../main.dart';
 
 class LearnerLogin extends StatefulWidget {
   static String tag = '/LearnerModrenMedicine';
+  
 
   @override
   _LearnerLoginState createState() => _LearnerLoginState();
@@ -21,25 +25,33 @@ class LearnerLogin extends StatefulWidget {
 class _LearnerLoginState extends State<LearnerLogin> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+
   final SupabaseClient supabase = Supabase.instance.client;
 
+  String? _username;
   Future<void> _signIn() async {
     try {
       final AuthResponse res = await supabase.auth.signInWithPassword(
         email: _emailController.text,
         password: _passwordController.text,
+        
       );
 
       if (res.user != null) {
+        final currentUser = supabase.auth.currentUser;
+         _username = currentUser?.email;
+         kullanici_adi = currentUser?.email;
   // Başarıyla oturum açıldı
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Login successful!')),
+    SnackBar(content: Text('Login successful!, $_username!')),
+    
   );
 
   // Kullanıcıyı home.dart sayfasına yönlendir
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (context) => LearnerHome()), // home.dart sayfanızın adı
+    MaterialPageRoute(builder: (context) => LearnerDashboard()), // home.dart sayfanızın adı
   );
 }
     } catch (e) {
@@ -59,8 +71,9 @@ class _LearnerLoginState extends State<LearnerLogin> {
           SafeArea(
             child: IconButton(
               icon: Icon(Icons.arrow_back, color: learner_colorPrimary),
-              onPressed: () {
+              onPressed: () async{
                 finish(context);
+                
               },
             ),
           ),
@@ -104,6 +117,7 @@ class _LearnerLoginState extends State<LearnerLogin> {
                       child: LearnerButton(
                         onPressed: _signIn,
                         textContent: learner_lbl_enter,
+                        
                       ),
                     ),
                   ),
