@@ -2,7 +2,7 @@
 import 'package:learner_prokit/utils/LearnerConstant.dart';
 
 const learner_walk_BackImg = "images/learner/learnerWalkBackImg.png";
-const learner_walk_1 = "$BaseUrl/images/learner/learner_walk_1.png";
+const learner_walk_1 = "https://r.resimlink.com/eIntPDU.jpg";
 const learner_walk_2 = "$BaseUrl/images/learner/learner_walk_2.png";
 const learner_walk_3 = "$BaseUrl/images/learner/learner_walk_3.png";
 
@@ -26,15 +26,22 @@ const learner_ic_correct = "images/learner/learner_ic_correct.svg";
 const learner_ic_block = "images/learner/learner_ic_block.svg";
 const learner_ic_check = "images/learner/learner_ic_check.png";
 const learner_ic_uncheck = "images/learner/learner_ic_uncheck.png";
+//terzi
+const learner_yazilim = "images/learner/Yazılım.jpg";
+const learner_bilgisayar = "images/learner/bilgisayar.jpg";
+const learner_psikoloji = "images/learner/psikoloji.jpg";
+const learner_mbgg = "images/learner/genetic-testing-main.jpg";
+const learner_siyaset = "images/learner/siyaset.jpg";
+const learner_hukuk = "images/learner/hukuk.jpg";
 
-const learner_ic_Profile = "$BaseUrl/images/learner/learner_ic_profile.jpg";
-const learner_ic_profile1 = "$BaseUrl/images/learner/learner_ic_profile1.jpg";
-const learner_ic_profile2 = "$BaseUrl/images/learner/learner_ic_profile2.jpeg";
-const learner_ic_profile3 = "$BaseUrl/images/learner/learner_ic_profile3.jpeg";
-const learner_ic_profile4 = "$BaseUrl/images/learner/learner_ic_profile4.jpeg";
-const learner_ic_profile5 = "$BaseUrl/images/learner/learner_ic_profile5.jpeg";
-const learner_ic_profile6 = "$BaseUrl/images/learner/learner_ic_profile6.jpeg";
-const learner_ic_profile7 = "$BaseUrl/images/learner/learner_ic_profile7.jpeg";
+const learner_ic_Profile = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile1 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile2 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile3 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile4 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile5 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile6 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+const learner_ic_profile7 = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
 const learner_ic_Img = "$BaseUrl/images/learner/learner_ic_Img1.png";
 const learner_ic_fab_back = "images/learner/learner_ic_fab_back.png";
 const learner_ic_smile = "images/learner/learner_ic_smile.png";
