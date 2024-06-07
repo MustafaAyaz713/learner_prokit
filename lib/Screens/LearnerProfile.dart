@@ -41,7 +41,7 @@ class _LearnerProfileState extends State<LearnerProfile> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        text("Nimasha Perara", fontFamily: fontSemibold, fontSize: textSizeLargeMedium, textColor: learner_textColorPrimary),
+                        text(kullanici_adi, fontFamily: fontSemibold, fontSize: textSizeLargeMedium, textColor: learner_textColorPrimary),
                         text(learner_lbl_390_290_points, textColor: learner_textColorPrimary),
                         SizedBox(
                           height: 8,
