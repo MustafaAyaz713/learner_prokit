@@ -23,11 +23,11 @@ class LearnerWalkThrough extends StatefulWidget {
 class _LearnerWalkThroughState extends State<LearnerWalkThrough> {
   int currentIndexPage = 0;
   int? pageLength;
-  var titles = ['Welcome', 'Select Course', 'Learn Topics'];
+  var titles = ['Hoş geldin', 'Kurs Seçimi', 'Konular'];
   var subTitles = [
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text ",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text  ",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text"
+    "Learner uygulamasına hoş geldiniz buradan bir şeyler öğrenmeden çıkamayacaksınız ",
+    "Alanlarında uzman hocalar tarafından hazırlanmış kurslarla ilgi duyduğunuz alanda gelişmenin tam sırası ",
+    "Matematik, fizik, biyoloji, tarih, bilgisayar bilimleri ve daha fazlası burada"
   ];
 
   List<LearnerWalk>? mList1;
@@ -36,6 +36,7 @@ class _LearnerWalkThroughState extends State<LearnerWalkThrough> {
   void initState() {
     super.initState();
     mList1 = learnerWalkImg();
+    
   }
 
   @override
@@ -96,21 +97,14 @@ class _LearnerWalkThroughState extends State<LearnerWalkThrough> {
                         alignment: Alignment.center,
                         child: LearnerButton(
                           onPressed: () {
-                            LearnerDashboard().launch(context);
+                            LearnerLogin().launch(context);
                           },
                           textContent: learner_Get_Started,
                         ),
                       ),
                     ),
                     16.height,
-                    Text(
-                      "Login",
-                      style: primaryTextStyle(decoration: TextDecoration.underline, color: learner_greyColor),
-                    ).onTap(
-                      () {
-                        LearnerLogin().launch(context);
-                      },
-                    )
+                    
                   ],
                 ),
               ),
