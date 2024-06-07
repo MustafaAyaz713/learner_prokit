@@ -11,9 +11,9 @@ const learner_lbl_join = "Katıl";
 const learner_lbl_don_t_joined_yet = "Henüz kayıt olmadın mı !";
 const learner_txt_terms_condition = "Terms & Condition";
 
-const learner_lbl_featured = "Featured";
-const learner_lbl_see_all = "See All";
-const learner_lbl_categories = "Categories";
+const learner_lbl_featured = "Eğitim Yerleşkemiz";
+const learner_lbl_see_all = "";
+const learner_lbl_categories = "Eğitim Branşlarımız";
 const learner_hint_search = "Ara...";
 const learner_lbl_filter = "Filtre";
 const learner_lbl_top_instructors = "En İyi Eğitmenler";
