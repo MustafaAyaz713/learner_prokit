@@ -107,7 +107,7 @@ class _LearnerProfileState extends State<LearnerProfile> {
                                 child: Image.asset('images/ic_theme.png', color: appColorPrimary),
                               ),
                               16.width,
-                              text('DarkMode', textColor: learner_textColorPrimary, fontSize: textSizeLargeMedium, fontFamily: fontSemibold),
+                              text('Koyu Mod', textColor: learner_textColorPrimary, fontSize: textSizeLargeMedium, fontFamily: fontSemibold),
                             ],
                           ),
                           Switch(
