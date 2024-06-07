@@ -101,7 +101,7 @@ Future<List<LearnerCoursesModel>> learnerGetCourses() async {
   List<LearnerCoursesModel> list = [];
   final data = await supabase.from('learnercoursesmodel').select();
     for(var row in data){
-      list.add(new LearnerCoursesModel(row["img"],row["name"]));
+      list.add(new LearnerCoursesModel(row["name"],row["img"]));
   }
 
   return list;
@@ -146,10 +146,10 @@ Future<List<LearnerLectureModel>> learnerGetLectureData() async {
 List<ChatModel> getMessages() {
   List<ChatModel> list = [];
 
-  ChatModel model1 = ChatModel('1', 'Hello Nimisha');
-  ChatModel model2 = ChatModel('1', 'I am Revision Bot, here to help you study your ongoing courses.');
-  ChatModel model3 = ChatModel('1', 'select a course to begin Business Management Cloud Computing Moden Medicine');
-  ChatModel model4 = ChatModel('2', 'Modren Medicine');
+  ChatModel model1 = ChatModel('1', 'Mesajım Geliyor mu?');
+  ChatModel model2 = ChatModel('1', 'Test amaçlı mesaj atıyorum.');
+  ChatModel model3 = ChatModel('1', 'Eğer mesajlarımı görebiliyorsan senden cevap bekliyorum.');
+  ChatModel model4 = ChatModel('2', 'Mesajların geliyor. ');
 
   list.add(model1);
   list.add(model2);
