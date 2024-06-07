@@ -1,23 +1,26 @@
 const learner_sample_long_text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
-const learner_Get_Started = "Get Started";
+const learner_Get_Started = "Giriş Yap";
 const learner_hint_email = "Email";
 const learner_hint_password = "Şifre";
-const learner_lbl_enter = "Enter";
-const learner_sign_up_info = "By Pressing 'Join' you agree to our";
+const learner_lbl_enter = "Giriş Yap";
+const learner_sign_up_info = "Katıla basarak bu şartları kabul edersiniz";
 
 const learner_hint_full_name = "Kullanıcı Adı ";
-const learner_lbl_login_underlined = "<u>Login</u>";
+const learner_lbl_login_underlined = "<u>Giriş Yap</u>";
 const learner_lbl_join = "Katıl";
-const learner_lbl_don_t_joined_yet = "Don\'t Joined Yet !";
+const learner_lbl_don_t_joined_yet = "Henüz kayıt olmadın mı !";
 const learner_txt_terms_condition = "Terms & Condition";
 
 const learner_lbl_featured = "Featured";
 const learner_lbl_see_all = "See All";
 const learner_lbl_categories = "Categories";
-const learner_hint_search = "Search...";
-const learner_lbl_filter = "Filter";
-const learner_lbl_top_instructors = "Top Instructors";
-const learner_lbl_recommended = "Recommended";
+const learner_hint_search = "Ara...";
+const learner_lbl_filter = "Filtre";
+const learner_lbl_top_instructors = "En İyi Eğitmenler";
+const learner_lbl_recommended = "Önerilenler";
+
+String? kullanici_adi = " ";
+const learner_display_name = "";
 
 const learner_lbl_390_290_points = "390,290 Points";
 const learner_lbl_general = "General";
@@ -38,8 +41,8 @@ const learner_lbl_My_Friends = "My Friends";
 const learner_lbl_Accepted = "Accepted";
 const learner_lbl_pending = "Pending";
 
-const learner_lbl_Student = "Student";
-const learner_lbl_Course = "COURSES";
+const learner_lbl_Student = "Bilgi Yüklenemiyor";
+const learner_lbl_Course = "KURSLAR";
 const learner_lbl_Points = "POINTS";
 const learner_lbl_Ranks = "RANKS";
 
@@ -67,11 +70,11 @@ const learner_lbl_chat = "Chats";
 const learner_lbl_Instrctors = "Instructors";
 const learner_lbl_Friends = "Friends";
 const learner_lbl_Bots = "Bots";
-const learner_lbl_Start_a_new_chat = "START A NEW CHAT";
+const learner_lbl_Start_a_new_chat = "Sohbet Başlat";
 const learner_lbl_start = "Start";
-const learner_lbl_Follow = "Follow";
-const learner_lbl_Ratting = "RATTINGS";
-const learner_lbl_Stud = "STUDENTS";
+const learner_lbl_Follow = "Takip Et";
+const learner_lbl_Ratting = "PUAN";
+const learner_lbl_Stud = "ÖĞRENCİLER";
 const learner_lbl_Introducation = "Introducation";
 const learner_lbl_Article = "Article";
 const learner_lbl_2K_Student = "2.8K STUNDENTS";
