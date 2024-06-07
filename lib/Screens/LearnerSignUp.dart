@@ -120,5 +120,5 @@ class _LearnerSignUpState extends State<LearnerSignUp> {
         ),
       ),
     );
-  }
+}
 }
