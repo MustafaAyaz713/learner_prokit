@@ -22,15 +22,15 @@ const learner_lbl_recommended = "Önerilenler";
 String? kullanici_adi = " ";
 const learner_display_name = "";
 
-const learner_lbl_390_290_points = "390,290 Points";
-const learner_lbl_general = "General";
-const learner_lbl_favourite_courses = "Favourite Courses";
-const learner_lbl_my_friends = "My Friends";
-const learner_lbl_achievements = "Achievements";
-const learner_lbl_settings = "Settings";
-const learner_lbl_edit_login_details = "Edit Login Details";
-const learner_lbl_update_interests = "Update Interests";
-const learner_lbl_blocked_users = "Blocked users";
+const learner_lbl_390_290_points = "390,290 İlerleme Puanı";
+const learner_lbl_general = "Genel";
+const learner_lbl_favourite_courses = "Favori Derslerim";
+const learner_lbl_my_friends = "Arkadaşlarım";
+const learner_lbl_achievements = "Ödüller";
+const learner_lbl_settings = "Ayarlar";
+const learner_lbl_edit_login_details = "Hesap Hakkında";
+const learner_lbl_update_interests = "İlgi Alanlarım";
+const learner_lbl_blocked_users = "Engellenen Kullanıcılar";
 
 const learner_lbl_favourites = "Favourites";
 const learner_lbl_locked_badge = "Locked Badge";
