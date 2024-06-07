@@ -76,8 +76,8 @@ class _LearnerChattingScreenState extends State<LearnerChattingScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            text("Marc Elliot", textColor: learner_textColorPrimary, fontSize: textSizeLargeMedium, fontFamily: fontMedium),
-                            text("Active", textColor: learner_textColorSecondary, fontSize: textSizeMedium, fontFamily: fontRegular)
+                            text("Kullanıcı", textColor: learner_textColorPrimary, fontSize: textSizeLargeMedium, fontFamily: fontMedium),
+                            text("Aktif", textColor: learner_textColorSecondary, fontSize: textSizeMedium, fontFamily: fontRegular)
                           ],
                         ),
                         Image.network(learner_ic_profile4, height: 45, width: 45, fit: BoxFit.fill).cornerRadiusWithClipRRect(25),
@@ -117,7 +117,7 @@ class _LearnerChattingScreenState extends State<LearnerChattingScreen> {
                     TextFormField(
                       style: primaryTextStyle(),
                       decoration: InputDecoration(
-                        hintText: "Ask me Something",
+                        hintText: "Bana Bir Şey Sor",
                         filled: true,
                         fillColor: context.cardColor,
                         enabledBorder: OutlineInputBorder(
